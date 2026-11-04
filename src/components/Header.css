@@ -1,0 +1,235 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246, 241, 234, 0.86);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.header.is-scrolled {
+  border-bottom-color: var(--color-line);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: var(--header-h);
+}
+
+.header__logo {
+  text-decoration: none;
+  color: var(--color-teal);
+  border-radius: var(--radius-sm);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logo__mark {
+  width: 36px;
+  height: 36px;
+}
+
+.logo__text {
+  display: grid;
+  line-height: 1.1;
+}
+
+.logo__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-teal);
+}
+
+.logo__sub {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: clamp(1.25rem, 0.5rem + 1.6vw, 2.5rem);
+  list-style: none;
+  padding: 0;
+}
+
+.header__nav a {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-brass);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
+}
+
+.header__nav a:hover::after,
+.header__nav a.active::after {
+  transform: scaleX(1);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.header__book {
+  display: none;
+}
+
+.header__toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+}
+
+.header__burger,
+.header__burger::before,
+.header__burger::after {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--color-text);
+  transition: transform var(--dur) var(--ease), background-color var(--dur-fast) var(--ease);
+}
+
+.header__burger {
+  position: relative;
+}
+
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.header__burger::before {
+  transform: translateY(-5px);
+}
+
+.header__burger::after {
+  transform: translateY(5px);
+}
+
+.is-open .header__burger {
+  background: transparent;
+}
+
+.is-open .header__burger::before {
+  transform: rotate(45deg);
+}
+
+.is-open .header__burger::after {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  background: var(--color-bg);
+  overflow-y: auto;
+  animation: menu-in var(--dur) var(--ease) both;
+}
+
+.mobile-menu[hidden] {
+  display: none;
+}
+
+.mobile-menu nav {
+  display: grid;
+  gap: var(--space-7);
+  padding: var(--space-7) var(--gutter);
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.mobile-menu li {
+  border-bottom: 1px solid var(--color-line);
+  animation: fade-up var(--dur) var(--ease) both;
+}
+
+.mobile-menu li a {
+  display: block;
+  padding: var(--space-5) 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.mobile-menu li a.active {
+  color: var(--color-teal);
+  font-style: italic;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .header__book {
+    display: inline-flex;
+  }
+
+  .mobile-menu__book {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__nav {
+    display: block;
+  }
+
+  .header__toggle,
+  .mobile-menu {
+    display: none;
+  }
+}

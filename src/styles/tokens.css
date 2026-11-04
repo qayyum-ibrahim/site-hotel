@@ -1,0 +1,65 @@
+:root {
+  /* Brand colors */
+  --color-bg: #f6f1ea;
+  --color-surface: #ffffff;
+  --color-text: #1f2a2e;
+  --color-muted: #6b7478;
+  --color-teal: #1d4b4f;
+  --color-teal-deep: #153a3d;
+  --color-brass: #b08d57;
+  --color-brass-dark: #8a6a3a;
+  --color-line: rgba(31, 42, 46, 0.12);
+  --color-line-strong: rgba(31, 42, 46, 0.24);
+  --color-on-teal: #f6f1ea;
+  --color-error: #9b3b2f;
+
+  /* Fonts */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Type scale (fluid) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.1rem, 1.6rem + 2.2vw, 3.25rem);
+  --text-4xl: clamp(2.6rem, 1.8rem + 3.6vw, 4.75rem);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --section-y: clamp(4.5rem, 3rem + 6vw, 9rem);
+
+  /* Layout */
+  --container: 1240px;
+  --container-wide: 1520px;
+  --gutter: clamp(1.25rem, 0.8rem + 2.4vw, 3rem);
+  --header-h: 76px;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(21, 58, 61, 0.06);
+  --shadow-md: 0 10px 30px -12px rgba(21, 58, 61, 0.18);
+  --shadow-lg: 0 30px 60px -24px rgba(21, 58, 61, 0.28);
+
+  /* Motion: slow and gentle */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur: 450ms;
+  --dur-slow: 900ms;
+}

@@ -1,0 +1,49 @@
+.img {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-teal);
+}
+
+.img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+.img.is-loaded img {
+  opacity: 1;
+}
+
+.img__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-3);
+  color: rgba(246, 241, 234, 0.55);
+  background:
+    radial-gradient(120% 80% at 85% 0%, rgba(176, 141, 87, 0.45), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(246, 241, 234, 0.05) 0 1px, transparent 1px 14px),
+    linear-gradient(160deg, #2a6266 0%, var(--color-teal) 45%, var(--color-teal-deep) 100%);
+}
+
+.img__mark {
+  width: clamp(56px, 18%, 120px);
+  height: auto;
+}
+
+.img__label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: var(--text-lg);
+  color: rgba(246, 241, 234, 0.8);
+  text-align: center;
+  padding-inline: var(--space-4);
+}

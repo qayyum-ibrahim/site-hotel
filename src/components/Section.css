@@ -1,0 +1,32 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.section--teal {
+  background: var(--color-teal);
+  color: var(--color-on-teal);
+}
+
+.section--teal h2,
+.section--teal h3 {
+  color: var(--color-on-teal);
+}
+
+.section--teal .lead {
+  color: rgba(246, 241, 234, 0.75);
+}
+
+.section--teal .eyebrow {
+  color: var(--color-brass);
+}
+
+.section__head {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
