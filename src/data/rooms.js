@@ -1,6 +1,14 @@
 // Order, names and types match IMAGE-PROMPTS.md (room-1.jpg to room-6.jpg).
 export const roomTypes = ['All', 'Deluxe', 'Suite', 'Family']
 
+export const roomsPage = {
+  eyebrow: 'Rooms & Suites',
+  title: 'Six ways to wake up',
+  titleItalic: 'on the water.',
+  intro: 'Every room faces the marina, the lagoon or the gardens. Linen from local weavers, floors in pale oak, and windows that open to the sea air.',
+  note: 'Rates are per night, for two guests, with breakfast at Tide.',
+}
+
 export const currency = (n) => `₦${n.toLocaleString('en-NG')}`
 
 export const rooms = [
@@ -14,7 +22,11 @@ export const rooms = [
     bed: 'King bed',
     view: 'Marina view',
     image: '/images/room-1.jpg',
-    gallery: ['/images/room-1.jpg', '/images/room-1-b.jpg', '/images/room-1-c.jpg'],
+    gallery: [
+      { src: '/images/room-1.jpg', alt: 'King bed with ivory linen facing a floor-to-ceiling window over the marina', label: 'The room' },
+      { src: '/images/room-1-b.jpg', alt: 'Bathroom with a freestanding tub, teal tiles and brass taps', label: 'The bathroom' },
+      { src: '/images/room-1-c.jpg', alt: 'Balcony with two chairs and a small table looking over the marina', label: 'The balcony' },
+    ],
     summary: 'Ivory linen, a teal reading chair and a full wall of glass over the boats.',
     description: [
       'Our most loved room. A king bed faces floor-to-ceiling windows, so the first thing you see each morning is the marina.',
@@ -32,7 +44,7 @@ export const rooms = [
     bed: 'King bed',
     view: 'City and water view',
     image: '/images/room-2.jpg',
-    gallery: ['/images/room-2.jpg'],
+    gallery: [{ src: '/images/room-2.jpg' }],
     summary: 'A quiet work desk, a lounge chair and warm light for longer stays.',
     description: [
       'Made for guests who work while they travel. A wide desk, good light and a deep lounge chair sit beside the window.',
@@ -50,7 +62,7 @@ export const rooms = [
     bed: 'King bed and sofa',
     view: 'Lagoon view',
     image: '/images/room-3.jpg',
-    gallery: ['/images/room-3.jpg'],
+    gallery: [{ src: '/images/room-3.jpg' }],
     summary: 'An open-plan bedroom and sitting area with a long window over the lagoon.',
     description: [
       'One open space with room to breathe. The bed and the sitting area share a long window over the lagoon.',
@@ -68,7 +80,7 @@ export const rooms = [
     bed: 'King bed',
     view: 'Marina view',
     image: '/images/room-4.jpg',
-    gallery: ['/images/room-4.jpg'],
+    gallery: [{ src: '/images/room-4.jpg' }],
     summary: 'A separate living room, a dining nook and brass details throughout.',
     description: [
       'A true suite with a door between the bedroom and the living room, and a dining nook for breakfast in.',
@@ -86,7 +98,7 @@ export const rooms = [
     bed: 'Two queen beds and sofa bed',
     view: 'Garden and pool view',
     image: '/images/room-5.jpg',
-    gallery: ['/images/room-5.jpg'],
+    gallery: [{ src: '/images/room-5.jpg' }],
     summary: 'Two large beds, a sofa bed and plenty of light for a family stay.',
     description: [
       'Bright and easy for families. Two queen beds and a sofa bed leave room for everyone, with space to play in between.',
@@ -104,7 +116,7 @@ export const rooms = [
     bed: 'King bed',
     view: 'Panoramic lagoon view',
     image: '/images/room-6.jpg',
-    gallery: ['/images/room-6.jpg'],
+    gallery: [{ src: '/images/room-6.jpg' }],
     summary: 'The top floor: panoramic windows, a grand living room and a private dining table.',
     description: [
       'The whole top corner of the hotel, with windows on two sides and the lagoon below.',

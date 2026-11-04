@@ -6,12 +6,13 @@ import Section from '../components/Section.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Icon from '../components/Icon.jsx'
 import AvailabilityBar from '../components/AvailabilityBar.jsx'
+import RoomCard from '../components/RoomCard.jsx'
 import { amenities, dining, facilitiesFeature, hero, intro, rating, reviews } from '../data/home.js'
-import { currency, rooms } from '../data/rooms.js'
+import { currency, getRoom } from '../data/rooms.js'
 import { offers } from '../data/offers.js'
 import './Home.css'
 
-const featuredRooms = ['deluxe-marina-room', 'junior-suite', 'presidential-suite'].map((id) => rooms.find((r) => r.id === id))
+const featuredRooms = ['deluxe-marina-room', 'junior-suite', 'presidential-suite'].map(getRoom)
 
 export default function Home() {
   return (
@@ -68,20 +69,7 @@ export default function Home() {
       >
         <ul className="room-cards">
           {featuredRooms.map((room, i) => (
-            <Reveal as="li" key={room.id} delay={i * 120} className="room-card">
-              <Link to={`/rooms/${room.id}`} className="room-card__link">
-                <Img src={room.image} alt={`${room.name} interior`} ratio="4 / 5" label={room.name} className="room-card__img" />
-                <div className="room-card__body">
-                  <p className="room-card__meta">
-                    {room.type} · {room.size} m² · {room.view}
-                  </p>
-                  <h3>{room.name}</h3>
-                  <p className="room-card__price">
-                    From <strong>{currency(room.price)}</strong> / night
-                  </p>
-                </div>
-              </Link>
-            </Reveal>
+            <RoomCard key={room.id} room={room} delay={i * 120} />
           ))}
         </ul>
         <div className="home-rooms__more">
