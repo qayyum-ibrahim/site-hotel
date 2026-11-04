@@ -9,6 +9,7 @@ import Facilities from './pages/Facilities.jsx'
 import Dining from './pages/Dining.jsx'
 import Offers from './pages/Offers.jsx'
 import Book from './pages/Book.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/dining" element={<Dining />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/book" element={<Book />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

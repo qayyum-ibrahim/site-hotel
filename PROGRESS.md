@@ -4,15 +4,15 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 
 ## Current status
 - Site: Marina Crest Hotel (Hotel Website)
-- Last completed phase: Phase 3
-- Next phase: Phase 4
+- Last completed phase: Phase 4
+- Next phase: Phase 5
 - Live URL: (owner fills in after the first Vercel deploy)
 
 ## Phase checklist
 - [x] Phase 1: Scaffold, deploy and design system
 - [x] Phase 2: Home page
 - [x] Phase 3: Main feature pages
-- [ ] Phase 4: Remaining pages
+- [x] Phase 4: Remaining pages
 - [ ] Phase 5: Polish and hand-off
 
 ## Decisions
@@ -32,6 +32,11 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P3: Only room 1 has a multi-photo gallery (the only gallery images in the brief). Other rooms show one large photo, no controls. `gallery` entries are `{ src, alt, label }`.
 - P3: Facilities copy (hours, pool size, spa, 24h gym, Lagoon Terrace for 180, events@marinacrest.example) in `src/data/facilities.js`. Gym and events have no image in the brief, so they use the designed fallback with a label.
 - P3: Rooms page note: rates are per night for two guests with breakfast.
+- P4: Dining copy (Tide menu and hours split into breakfast/lunch/dinner, Brass Bar drinks, live music Fridays, dress and age notes) in `src/data/dining.js`. The Brass Bar has no image in the brief, so it uses the fallback with a label.
+- P4: Offers page reuses brief images (room-1-c, spa, pool). Added `details`, `unit`, `terms` and image fields to `src/data/offers.js`. "Book this offer" links to `/book` (no offer pricing in the booking flow).
+- P4: Book flow: 4 steps (Dates, Room, Guest details, Summary) then a confirmation screen with a random `MC-XXXXXX` reference. Reads `checkIn`, `checkOut`, `guests`, `room` from the URL; valid dates skip to the Room step. Rooms too small for the guest count are disabled. Total = nightly rate × nights, taxes included. No payment, no network calls.
+- P4: Guest form validates names, email, phone (7+ digits) and terms checkbox. Arrival time and requests are optional.
+- P4: Not-found page ("Lost at sea, briefly.") on the `*` route. `PageStub` removed.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
@@ -41,4 +46,5 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - Shared components in `src/components/`: Header, Footer, Img (`ratio`, `label`, `eager`), Button (`to`/`href`, variants primary/brass/outline/light, size sm), Section (`eyebrow`, `title`, `intro`, `tone` default/surface/teal, `wide`), PageTitle (`title`, `description`). `PageStub` is a temporary placeholder: remove when all pages are built.
 - P2 added: `Reveal` (scroll fade-up, `as`, `delay`), `Icon` (inline SVG: pool, spa, gym, events, arrow, star, calendar, guests), `AvailabilityBar`, and `src/lib/dates.js` (`today`, `addDays`, `nightsBetween`, `validateStay`). Reuse them in Phase 3 and 4.
 - P3 added: `PageIntro` (inner-page h1 block: `eyebrow`, `title`, `titleItalic`, `intro`, children), `RoomCard` (shared with Home, styles in `RoomCard.css`), `RoomGallery`. Use `PageIntro` for Dining, Offers and Book.
+- P4 added: `Field` (inside `Book.jsx`) and `.field` styles in `Book.css`. Phase 5 should test the booking flow by keyboard and at 360px.
 - Utility classes in `base.css`: `.container`, `.container--wide`, `.eyebrow`, `.lead`, `.fade-up`, `.visually-hidden`.
