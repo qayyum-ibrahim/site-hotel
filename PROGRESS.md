@@ -4,8 +4,8 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 
 ## Current status
 - Site: Marina Crest Hotel (Hotel Website)
-- Last completed phase: Phase 4
-- Next phase: Phase 5
+- Last completed phase: Phase 5
+- Next phase: none. Site complete.
 - Live URL: (owner fills in after the first Vercel deploy)
 
 ## Phase checklist
@@ -13,7 +13,9 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - [x] Phase 2: Home page
 - [x] Phase 3: Main feature pages
 - [x] Phase 4: Remaining pages
-- [ ] Phase 5: Polish and hand-off
+- [x] Phase 5: Polish and hand-off
+
+**Site complete.**
 
 ## Decisions
 (Write each choice you made without asking. One line each, with the phase number.)
@@ -37,13 +39,18 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P4: Book flow: 4 steps (Dates, Room, Guest details, Summary) then a confirmation screen with a random `MC-XXXXXX` reference. Reads `checkIn`, `checkOut`, `guests`, `room` from the URL; valid dates skip to the Room step. Rooms too small for the guest count are disabled. Total = nightly rate × nights, taxes included. No payment, no network calls.
 - P4: Guest form validates names, email, phone (7+ digits) and terms checkbox. Arrival time and requests are optional.
 - P4: Not-found page ("Lost at sea, briefly.") on the `*` route. `PageStub` removed.
+- P5: `--color-muted` darkened from #6b7478 to #616a6e and `--color-brass-dark` to #81622f so small text passes WCAG AA (4.5:1) on the cream background. Brief colors are otherwise unchanged.
+- P5: Focus ring uses brass-dark on light grounds (brass was under 3:1 on cream) and brass on teal grounds (hero, teal sections, footer).
+- P5: Fixed booking page overflow at 360px (date inputs stretched the grid). Grids now use `minmax(0, 1fr)`; room thumbnail in the booking list is 4.5rem on mobile.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)
 
 ## Notes for next session
 (Short. Only what the next session needs to know.)
-- Shared components in `src/components/`: Header, Footer, Img (`ratio`, `label`, `eager`), Button (`to`/`href`, variants primary/brass/outline/light, size sm), Section (`eyebrow`, `title`, `intro`, `tone` default/surface/teal, `wide`), PageTitle (`title`, `description`). `PageStub` is a temporary placeholder: remove when all pages are built.
+- Owner: run `/site-done hotel <live url>` in the projects folder.
+- P5 checked: every route at 360, 768 and 1280 (headless Chrome), no console errors, no broken internal links, titles and meta per route, no layout shift with missing images. README.md explains run, photos and content files.
+- Shared components in `src/components/`: Header, Footer, Img (`ratio`, `label`, `eager`), Button (`to`/`href`, variants primary/brass/outline/light, size sm), Section (`eyebrow`, `title`, `intro`, `tone` default/surface/teal, `wide`), PageTitle (`title`, `description`). 
 - P2 added: `Reveal` (scroll fade-up, `as`, `delay`), `Icon` (inline SVG: pool, spa, gym, events, arrow, star, calendar, guests), `AvailabilityBar`, and `src/lib/dates.js` (`today`, `addDays`, `nightsBetween`, `validateStay`). Reuse them in Phase 3 and 4.
 - P3 added: `PageIntro` (inner-page h1 block: `eyebrow`, `title`, `titleItalic`, `intro`, children), `RoomCard` (shared with Home, styles in `RoomCard.css`), `RoomGallery`. Use `PageIntro` for Dining, Offers and Book.
 - P4 added: `Field` (inside `Book.jsx`) and `.field` styles in `Book.css`. Phase 5 should test the booking flow by keyboard and at 360px.

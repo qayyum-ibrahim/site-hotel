@@ -3,11 +3,11 @@
   --color-bg: #f6f1ea;
   --color-surface: #ffffff;
   --color-text: #1f2a2e;
-  --color-muted: #6b7478;
+  --color-muted: #616a6e; /* brief #6b7478, darkened for AA on the cream background */
   --color-teal: #1d4b4f;
   --color-teal-deep: #153a3d;
   --color-brass: #b08d57;
-  --color-brass-dark: #8a6a3a;
+  --color-brass-dark: #81622f;
   --color-line: rgba(31, 42, 46, 0.12);
   --color-line-strong: rgba(31, 42, 46, 0.24);
   --color-on-teal: #f6f1ea;

@@ -89,8 +89,20 @@ em {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brass);
+  outline: 2px solid var(--color-brass-dark);
   outline-offset: 3px;
+}
+
+/* Lighter brass ring on dark teal grounds */
+.footer :focus-visible,
+.section--teal :focus-visible,
+.home-dining :focus-visible,
+.hero :focus-visible {
+  outline-color: var(--color-brass);
+}
+
+main:focus {
+  outline: none;
 }
 
 /* Utilities */
