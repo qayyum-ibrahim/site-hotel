@@ -42,6 +42,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 - P5: `--color-muted` darkened from #6b7478 to #616a6e and `--color-brass-dark` to #81622f so small text passes WCAG AA (4.5:1) on the cream background. Brief colors are otherwise unchanged.
 - P5: Focus ring uses brass-dark on light grounds (brass was under 3:1 on cream) and brass on teal grounds (hero, teal sections, footer).
 - P5: Fixed booking page overflow at 360px (date inputs stretched the grid). Grids now use `minmax(0, 1fr)`; room thumbnail in the booking list is 4.5rem on mobile.
+- Fix: header blur moved to `.header::before`; `backdrop-filter` on the header collapsed the fixed mobile menu on phone browsers.
 
 ## Blockers
 (Write anything that stopped you. Say exactly what the owner must do.)

@@ -2,13 +2,22 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(246, 241, 234, 0.86);
-  backdrop-filter: saturate(140%) blur(12px);
-  -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid transparent;
   transition:
     border-color var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease);
+}
+
+/* Blur lives on a pseudo-element: backdrop-filter on .header itself would make it
+   the containing block for the fixed mobile menu and collapse it on mobile browsers. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(246, 241, 234, 0.86);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
 }
 
 .header.is-scrolled {
