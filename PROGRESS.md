@@ -49,6 +49,7 @@ Claude Code: read this at the start of every session. Update it at the end of ev
 ## Notes for next session
 (Short. Only what the next session needs to know.)
 - Owner: run `/site-done hotel <live url>` in the projects folder.
+- Images: all 12 brief photos added to `public/images/`.
 - P5 checked: every route at 360, 768 and 1280 (headless Chrome), no console errors, no broken internal links, titles and meta per route, no layout shift with missing images. README.md explains run, photos and content files.
 - Shared components in `src/components/`: Header, Footer, Img (`ratio`, `label`, `eager`), Button (`to`/`href`, variants primary/brass/outline/light, size sm), Section (`eyebrow`, `title`, `intro`, `tone` default/surface/teal, `wide`), PageTitle (`title`, `description`). 
 - P2 added: `Reveal` (scroll fade-up, `as`, `delay`), `Icon` (inline SVG: pool, spa, gym, events, arrow, star, calendar, guests), `AvailabilityBar`, and `src/lib/dates.js` (`today`, `addDays`, `nightsBetween`, `validateStay`). Reuse them in Phase 3 and 4.
